@@ -22,6 +22,8 @@ When a key is pressed on the remote controller, the message transmitted consists
 
 •	a final 562.5µs pulse burst to signify the end of message transmission.
 
+![image](https://user-images.githubusercontent.com/96151955/151664827-11187745-cda3-4592-ac88-c3f7dbc53528.png)
+
 The four bytes of data bits are each sent least significant bit first. 
 It takes 27ms to transmit both the 16 bits for the address (address + inverse) and the 16 bits for the command (command + inverse). This comes from each of the 16-bit blocks ultimately containing eight '0's and eight '1's - giving (8 * 1.125ms) + (8 * 2.25ms). 67.5ms to fully transmit the message frame (discounting the final 562.5µs pulse burst that signifies the end of message).
 If the key on the remote controller is kept depressed, a repeat code will be issued, typically around 40ms after the pulse burst that signified the end of the message. A repeat code will continue to be sent out at 108ms intervals, until the key is finally released. The repeat code consists of the following, in order:
@@ -30,4 +32,7 @@ If the key on the remote controller is kept depressed, a repeat code will be iss
 
 •	a 2.25ms space
 
-•	a 562.5µs pulse burst to mark the end of the space (and hence end of the transmitted repeat code).
+•	a 562.5µs pulse burst to mark the end of the space (and hence end of the transmitted repeat code)
+
+![image](https://user-images.githubusercontent.com/96151955/151664840-ca165c7a-c040-457a-aeab-5327f1f9ffc2.png)
+
